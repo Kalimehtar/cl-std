@@ -5,6 +5,7 @@
 
 (asdf:defsystem #:std-container
   :serial t
+  :depends-on (#:std-container)
   :components ((:file "container.package")
                (:file "container")))
 

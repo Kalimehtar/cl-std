@@ -1,3 +1,5 @@
+(in-package #:std.container)
+
 (cl:defgeneric length (container)
   (:documentation "Number of elements in the CONTAINER"))
 
