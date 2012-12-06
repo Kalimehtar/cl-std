@@ -1,4 +1,5 @@
 (defpackage #:std.set
+  (:use)
   (:export
    #:insert
    #:delete
