@@ -50,3 +50,26 @@ Returns member of '(< > = /=)"))
 (defun /= (arg &rest args)
   (and (every (lambda (x) (not (= arg x))) args)
        (/= args)))
+
+(defgeneric send (object message &rest params)
+  (:documentation "Message passing object system. MESSAGE is recommended to be keyword"))
+
+(defmethod send (object (message (eql :copy)) &rest params)
+  (declare (ignore params))
+  (copy object))
+
+(defmacro @ (object message &rest more-messages)
+    "Enables ruby-like pipelines
+ (@ l (:map (lambda (x) (process x)))) == (mapc ...)
+ (@ l (:map func) (:reduce #'+)) == (reduce (map ..))"
+  (let ((res 
+         (if (listp message)
+             `(send ,object ,@message)
+             `(send ,object ,message))))
+    (if more-messages
+        `(@ ,res . ,more-messages)
+        ,res)))
+
+  
+    
+      
