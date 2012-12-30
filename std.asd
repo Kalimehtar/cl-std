@@ -1,7 +1,8 @@
 (asdf:defsystem #:std-base
   :serial t
   :depends-on (#:advanced-readtable)
-  :components ((:file "std")
+  :components ((:file "declare")
+               (:file "std")
                (:file "base.package")
                (:file "base")
                (:file "macro.package")

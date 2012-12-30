@@ -1,6 +1,7 @@
 (defpackage #:std.base
   (:use)
   (:import-from #:cl 
+                #:&rest #:&key #:&allow-other-keys #:&optional #:&body #:&whole
                 #:or #:not #:and #:nil #:t
                 #:declare #:proclaim #:declaim
                 #:cond #:case #:ccase #:ecase #:if #:do #:do* #:loop
@@ -10,7 +11,8 @@
                 #:typecase #:etypecase #:ctypecase
                 #:eq #:eql #:equal #:equalp
                 #:member #:values #:let #:let*
-                #:defun #:the)
+                #:defun #:the #:declare
+                #:defmethod #:defgeneric #:defmacro)
   (:import-from #:advanced-readtable
                 #:find-symbol #:find-package)
   (:export
@@ -54,4 +56,5 @@
    #:values
    #:let
    #:let*
-   #:the))
+   #:the
+   #:&rest #:&key #:&allow-other-keys #:&optional #:&body #:&whole))
