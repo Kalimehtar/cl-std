@@ -1,14 +1,26 @@
 (asdf:defsystem #:std-base
   :serial t
-  :depends-on (#:advanced-readtable)
+  :depends-on (#:advanced-readtable 
+               #:iterate #:alexandria #:closer-mop
+               #:metabang-bind)
   :components ((:file "declare")
                (:file "std")
                (:file "base.package")
-               (:file "base")
+               (:file "message.package")
+               (:file "base")               
+               (:file "symbol.package")
+               (:file "symbol")
+               (:file "package.package")
+               (:file "package")
                (:file "macro.package")
                (:file "macro")
+               (:file "message")               
                (:file "function.package")
-               (:file "function")))
+               (:file "function")
+               (:file "method.package")
+               (:file "method")
+               (:file "const.package")
+               (:file "const")))
 
 (asdf:defsystem #:std-container
   :serial t

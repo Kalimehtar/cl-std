@@ -1,5 +1,10 @@
-(cl:in-package #:std.type)
+(std:in-package #:std.type)
 
-(setf (cl:symbol-function '?) (cl:symbol-function 'cl:typep))
+(macro::= ? cl:typep)
+
+(defun < (type1 type2 &rest more-types)
+  (if more-types
+      (and (< type1 type2) (func:apply #'< type2 more-types))
+      (cl:subtypep type1 type2)))
 
 

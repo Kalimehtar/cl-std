@@ -1,12 +1,15 @@
-(std:in-package #:std.function)
+(std:in-package #:std.func)
 
-(setf (macro:function '!) (macro:function 'cl:defun))
+(symbol:m! ! cl:defun)
 
-(setf (cl:fdefinition '(setf definition))
-      (cl:fdefinition '(setf cl:fdefinition))
-      (cl:fdefinition 'definition)
-      (cl:fdefinition 'cl:fdefinition))
+(symbol:f!! definition cl:fdefinition)
+(symbol:f! ? cl:functionp
+           bound? cl:fboundp
+           $ cl:fmakunbound)
 
-(setf (definition '?) (definition 'cl:functionp))
-
-
+(cl:deftype ! (&optional arg-typespec value-typespec)
+  (if value-typespec
+    `(cl:function ,arg-typespec ,value-typespec)
+    (if arg-typespec
+        `(cl:function ,arg-typespec)
+        'cl:function)))

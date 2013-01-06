@@ -1,4 +1,6 @@
-(defpackage #:declare
+(defpackage #:std.declare
   (:use #:cl)
-  (:export #:ignore #:ignorable 
-           #:speed #:type #:optimize #:debug))
+  (:export #:ignore #:ignorable #:ftype
+           #:speed #:type #:optimize #:debug #:safety
+           #:special #:dynamic-extent
+           #:inline #:notinline))

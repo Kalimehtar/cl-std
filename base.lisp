@@ -51,24 +51,21 @@ Returns member of '(< > = /=)"))
   (and (every (lambda (x) (not (= arg x))) args)
        (/= args)))
 
-(defgeneric send (object message &rest params)
-  (:documentation 
-"Message passing object system. MESSAGE is recommended to be keyword")
-  (:method (object (message (eql :copy)) &rest params)
-    (declare (ignore params))
-    (copy object)))
-
 (defmacro @ (object message &rest more-messages)
-    "Enables ruby-like pipelines
- (@ l (:map (lambda (x) (process x)))) == (mapc ...)
- (@ l (:map func) (:reduce #'+)) == (reduce (map ..))"
+    "Enables message pipelines
+ (@ l (:map (lambda (x) (process x)))) == (mapcar ...)
+ (@ l (:map func) (:reduce #'+)) == (reduce (mapcar ..))"
   (let ((res 
          (if (listp message)
-             `(send ,object ,@message)
-             `(send ,object ,message))))
+             `(message:send ,object . ,message)
+             `(message:send ,object ,message))))
     (if more-messages
         `(@ ,res . ,more-messages)
         res)))
+
+(defmacro eval-always (&body body)
+  `(eval-when (:compile-toplevel :load-toplevel :execute)
+     . ,body))
 
   
     

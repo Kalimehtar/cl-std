@@ -1,14 +1,25 @@
 (std:in-package #:std.macro)
 
-(setf (cl:fdefinition 'function) 
-      (cl:fdefinition 'cl:macro-function)
-      (cl:fdefinition '(setf function)) 
-      (cl:fdefinition '(setf cl:macro-function)))
+(symbol:f!! function cl:macro-function
+            compiler-function cl:compiler-macro-function)
+(symbol:f! expand cl:macroexpand
+           expand-1 cl:macroexpand-1)
 
-(setf (macro:function '!) (macro:function 'cl:defmacro))
+(advanced-readtable:set-macro-symbol  '*expand-hook* 
+                                      (lambda (stream symbol) 
+                                        (declare (ignore stream symbol))
+                                        'cl:*macroexpand-hook*))
+
+(symbol:m! ! cl:defmacro
+           define-compiler cl:define-compiler-macro)
 
 (cl:defun ? (symbol)
   (and (cl:fboundp symbol) (cl:macro-function symbol)))
 
-(cl:defmacro macro:let (definitions &rest body)
+(cl:defun $ (symbol)
+  (setf (function symbol) nil))
+
+(cl:defmacro let (definitions &rest body)
   `(cl:macrolet ,definitions . ,body))
+
+
