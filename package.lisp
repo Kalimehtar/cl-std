@@ -13,8 +13,8 @@
            name cl:package-name
            nicknames cl:package-nicknames
            use cl:package-use-list
-           used-by cl:package-use-list
-           shadowing-symbols cl:package-use-list
+           used-by cl:package-used-by-list
+           shadowing-symbols cl:package-shadowing-symbols
            use! cl:use-package
            unuse! cl:unuse-package)
 

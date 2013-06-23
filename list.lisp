@@ -2,4 +2,4 @@
 
 (cl:deftype ! () 'cl:list)
 
-(defmacro ? (object) `(cl:listp ,object))
+(cl:defmacro ? (object) `(cl:listp ,object))

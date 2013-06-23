@@ -34,7 +34,8 @@
     plist cl:symbol-plist
     value cl:symbol-value
     remprop cl:remprop
-    prop cl:get)
+    prop cl:get
+    find cl:find-symbol)
 
 ;;; Strange, but in SBCL no (setf get) function
 (cl:defun (setf prop) (val symbol indicator &optional default)

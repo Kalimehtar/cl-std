@@ -39,9 +39,9 @@
    #:declare #:eval-always
    #:not #:and #:or #:nil #:t
    #:eq #:eql #:equal #:equalp 
-   #:member #:values #:lambda #:funcall
+   #:member #:values ; #:lambda #:funcall
    #:the #:locally
-   #:find-symbol #:find-package
+   ;#:find-symbol #:find-package
    #:&rest #:&key #:&allow-other-keys #:&optional #:&body #:&whole
    #:defvar #:defparameter #:bind
    #:block #:catch #:throw #:tagbody #:go #:return-from #:return
