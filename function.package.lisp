@@ -4,4 +4,4 @@
   (:export
    #:! #:? #:$
    #:definition #:bound?
-   #:apply))
+   #:apply #:call))

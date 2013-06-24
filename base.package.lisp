@@ -39,11 +39,10 @@
    #:declare #:eval-always
    #:not #:and #:or #:nil #:t
    #:eq #:eql #:equal #:equalp 
-   #:member #:values ; #:lambda #:funcall
+   #:member #:values
    #:the #:locally
-   ;#:find-symbol #:find-package
    #:&rest #:&key #:&allow-other-keys #:&optional #:&body #:&whole
-   #:defvar #:defparameter #:bind
+   #:defvar #:defparameter #:bind #:iter
    #:block #:catch #:throw #:tagbody #:go #:return-from #:return
    #:prog1 #:progn
    #:*readtable* #:*package*))

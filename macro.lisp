@@ -6,7 +6,7 @@
            expand-1 cl:macroexpand-1)
 
 (advanced-readtable:set-macro-symbol  '*expand-hook* 
-                                      (lambda (stream symbol) 
+                                      (cl:lambda (stream symbol) 
                                         (declare (ignore stream symbol))
                                         'cl:*macroexpand-hook*))
 
