@@ -36,7 +36,7 @@
    #:if #:do #:do* #:let #:let* #:labels #:flet
    #:when #:unless
    #:typecase #:etypecase #:ctypecase
-   #:declare #:eval-always
+   #:declare #:eval-always #:eval-when
    #:not #:and #:or #:nil #:t
    #:eq #:eql #:equal #:equalp 
    #:member #:values

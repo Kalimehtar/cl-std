@@ -19,6 +19,8 @@
                (:file "function")
                (:file "method.package")
                (:file "method")
+               (:file "list.package")
+               (:file "list")
                (:file "const.package")
                (:file "const")))
 

@@ -8,7 +8,6 @@
            $ cl:fmakunbound)
 
 (symbol:m! !! cl:lambda)
-; (symbol:f! apply cl:apply)
 (symbol:f! call cl:funcall)
 
 

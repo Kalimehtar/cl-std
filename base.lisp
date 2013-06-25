@@ -51,17 +51,17 @@ Returns member of '(< > = /=)"))
   (and (every (lambda (x) (not (= arg x))) args)
        (/= args)))
 
-(defmacro @ (object message &rest more-messages)
-    "Enables message pipelines
- (@ l (:map (lambda (x) (process x)))) == (mapcar ...)
- (@ l (:map func) (:reduce #'+)) == (reduce (mapcar ..))"
-  (let ((res 
-         (if (listp message)
-             `(message:send ,object . ,message)
-             `(message:send ,object ,message))))
-    (if more-messages
-        `(@ ,res . ,more-messages)
-        res)))
+;; (defmacro @ (object message &rest more-messages)
+;;     "Enables message pipelines
+;;  (@ l (:map (lambda (x) (process x)))) == (mapcar ...)
+;;  (@ l (:map func) (:reduce #'+)) == (reduce (mapcar ..))"
+;;   (let ((res 
+;;          (if (listp message)
+;;              `(message:send ,object . ,message)
+;;              `(message:send ,object ,message))))
+;;     (if more-messages
+;;         `(@ ,res . ,more-messages)
+;;         res)))
 
 (defmacro eval-always (&body body)
   `(eval-when (:compile-toplevel :load-toplevel :execute)

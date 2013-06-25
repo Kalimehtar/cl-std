@@ -9,5 +9,6 @@
    #:! #:?
    #:first 
    #:rest
+   #:filter
    #:map 
    #:append))
