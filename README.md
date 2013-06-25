@@ -24,7 +24,9 @@ Implemented:
 http://cdr.eurolisp.org/document/8/index.html
 
 Usage examples:
-    (std:defpackage #:test)
+
+    (std:defpackage #:test (:use #:base))
+    (std:in-package #:test)
 
     (func:! sort (list)
         (when list
